@@ -1,33 +1,21 @@
-import React from "react";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-  from,
-} from "@apollo/client";
-import { onError } from "@apollo/client/link/error";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import GetGraph from "./components/GetGraph";
+import CategoryPage from "./pages/CategoryPage";
+import ProductPage from "./pages/ProductPage";
 
-const errorLink = onError(({ graphqlErrors, networkError}) => {
-  if(graphqlErrors) {
-   return graphqlErrors.map(({message, location, path}) => {
-      alert(`Graphql  error ${message}`)
-    })
+export class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<CategoryPage />} />
+          {/* <Route path="/products" element={<ProductPage/>}/> */}
+        </Routes>
+      </Router>
+    );
   }
-})
-
-const link = from([errorLink, new HttpLink({ uri: "http://localhost:4000" }),]);
-
-const client = new ApolloClient({ cache: new InMemoryCache(), link: link });
-
-
-
-const App = () => {
-  return <ApolloProvider client={client}>App
-    <GetGraph/>
-  </ApolloProvider>;
-};
+}
 
 export default App;
