@@ -1,8 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const GET_CATEGORIESDYNAMIC = gql`
+  query GetCat($name: String!) {
+    category(input: { title: $name }) {
+      name
+      products {
+        name
+      }
+    }
+  }
+`;
+
+export const GET_SPEC = gql`
   {
-    category(input: { title: "all" }) {
+    category(input: { title: "" }) {
       products {
         id
         name
@@ -31,10 +42,17 @@ export const GET_CATEGORIESDYNAMIC = gql`
 export const GET_CATEGORIES = gql`
   query {
     categories {
-        name
+      name
     }
   }
-`
+`;
+export const GET_ONE_CATEGORIES = gql`
+  query {
+    categories {
+      name
+    }
+  }
+`;
 
 export const LOAD_DATA = gql`
   query {

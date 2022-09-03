@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ProductPage extends Component {
-  render() {
-    return (
-      <div>ProductPage</div>
-    )
-  }
+
+const ProductPage = () => {
+  return (
+    <div>ProductPage</div>
+  )
 }
+
+export default ProductPage

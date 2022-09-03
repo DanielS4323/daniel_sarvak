@@ -1,40 +1,27 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import styles from "./NavBar.module.css";
+import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES } from "../../GraphQL/Queries";
-import { Query } from "@apollo/client/react/components";
 
-export default class NavBar extends Component {
-  // const { error, loading, data } = useQuery(GET_CATEGORIES);
-  //   const [dataLoaded, setDataLoaded] = useState([]);
+const NavBar = (props) => {
+  const { error, loading, data } = useQuery(GET_CATEGORIES);
 
-  constructor() {
-    super();
-    this.state = {
-      categories: [],
-    };
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+  
 
-  componentDidMount() {}
+  return (
+    <nav className={styles}>
+      <ul>
+        {data.categories.map((el) => (
+          <li key={el.name}>
+            <NavLink to={el.name}>{el.name}</NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
-  render() {
-    return (
-      <Query query={GET_CATEGORIES}>
-        {({ loading, data }) => {
-          if (loading) return "Loading...";
-
-          return (
-            <Fragment>
-              {data.categories.map((el, index) => (
-                <nav>
-                  <ul>
-                    <li key={index}>{el.name}</li>
-                  </ul>
-                </nav>
-              ))}
-            </Fragment>
-          );
-        }}
-      </Query>
-    );
-  }
-}
+export default NavBar;

@@ -1,12 +1,11 @@
-import React, { Component } from "react";
-import NavBar from "../components/UI/NavBar";
+import React from "react";
+import Layout from "../components/Layout/Layout";
 
-export default class CategoryPage extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <NavBar />
-      </React.Fragment>
-    );
-  }
-}
+const CategoryPage = () => {
+  return <Layout>
+    
+
+  </Layout>;
+};
+
+export default CategoryPage;
