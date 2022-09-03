@@ -7,6 +7,7 @@ nav ul {
 
 nav li {
   padding: 1em;
+  margin: 0 1em;
 }
 
 nav a {
@@ -15,7 +16,6 @@ nav a {
 }
 
 nav a:hover,
-nav a:active,
 nav a.active {
   color: #5ECE7B;
 }

@@ -5,7 +5,25 @@ export const GET_CATEGORIESDYNAMIC = gql`
     category(input: { title: $name }) {
       name
       products {
+        id
         name
+        brand
+        gallery
+        inStock
+        attributes {
+          type
+          name
+          items {
+            value
+          }
+        }
+        prices {
+          currency {
+            symbol
+            label
+          }
+          amount
+        }
       }
     }
   }
@@ -40,13 +58,6 @@ export const GET_SPEC = gql`
 `;
 
 export const GET_CATEGORIES = gql`
-  query {
-    categories {
-      name
-    }
-  }
-`;
-export const GET_ONE_CATEGORIES = gql`
   query {
     categories {
       name
@@ -89,6 +100,39 @@ export const LOAD_DATA = gql`
     currencies {
       label
       symbol
+    }
+  }
+`;
+export const GET_ALL_PRODUCTS = gql`
+  query {
+    category {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
     }
   }
 `;

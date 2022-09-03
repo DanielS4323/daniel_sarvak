@@ -8,15 +8,22 @@ const NavBar = (props) => {
   const { error, loading, data } = useQuery(GET_CATEGORIES);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (error) return <p>Error: {error}</p>;
   
+const navLinkStyles = ({isActive}) => {
+  return {
+    borderBottom: isActive ? "2px solid #5ECE7B" : "",
+    paddingBottom: isActive ? '10px' : '',
+    color: isActive ? '#5ECE7B' : '' 
+  }
+}
 
   return (
     <nav className={styles}>
       <ul>
         {data.categories.map((el) => (
           <li key={el.name}>
-            <NavLink to={el.name}>{el.name}</NavLink>
+            <NavLink style={navLinkStyles} to={`/product/${el.name}`}>{el.name}</NavLink>
           </li>
         ))}
       </ul>

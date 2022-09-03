@@ -10,9 +10,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate replace to='/home'/>}/>
-        <Route path="/home" element={<CategoryPage />} />
-        {/* <Route path="/product:id" element={<ProductPage />} /> */}
+        <Route path="/" element={<Navigate replace to='/product/all'/>}/>
+        {/* <Route path="/product/all" element={<CategoryPage />} /> */}
+        <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </Router>
   );
