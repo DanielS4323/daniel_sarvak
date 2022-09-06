@@ -1,9 +1,14 @@
 .container {
-   margin: 3rem;
-   
+  margin: 3rem;
+  text-decoration: none;
+}
+
+.container,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
 
 .productImage {
-    width: 15rem;
-    
+  width: 15rem;
 }

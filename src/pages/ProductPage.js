@@ -23,7 +23,7 @@ const ProductPage = () => {
 
   return (
     <Layout>
-      <h1>{id}</h1>
+      <h2>{id}</h2>
       
       <div className={styles.wrap}>{products}</div>
     </Layout>

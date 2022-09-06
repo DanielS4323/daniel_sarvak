@@ -26,6 +26,7 @@ const navLinkStyles = ({isActive}) => {
             <NavLink style={navLinkStyles} to={`/product/${el.name}`}>{el.name}</NavLink>
           </li>
         ))}
+        <li className={styles.cartButton}>Cart</li>
       </ul>
     </nav>
   );
