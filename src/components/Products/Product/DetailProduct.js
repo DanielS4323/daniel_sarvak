@@ -22,6 +22,7 @@ const DetailProduct = () => {
         <ProductInformation
           brand={data.product.brand}
           name={data.product.name}
+          price={data.product.prices[0].amount}
           attributes={data.product.attributes}
         />
       </section>

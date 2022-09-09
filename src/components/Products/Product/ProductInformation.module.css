@@ -1,0 +1,38 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.colorsDiv {
+  display: flex;
+  margin-bottom: 1em;
+}
+/* .colorsDiv:not(:nth-last-of-type(-n+2)) {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+}  */
+
+.sizeInfo {
+  margin: 0.2em;
+  padding: 0.1em;
+  border: 1px solid black;
+}
+
+.sizeInfo:focus {
+    background-color: #5ece7b;
+}
+
+.sizeInfo:hover {
+  background-color: #5ece7b;
+}
+.colorInfo:hover {
+    border: 1px solid #5ece7b;
+}
+.colorInfo {
+  margin: 0.2em;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}

@@ -1,15 +1,12 @@
 import React from "react";
-
+import ProductColorCapacity from "./ProductColor&Capacity";
+import styles from "./ProductInformation.module.css";
+import ProductSize from "./ProductSize";
+import ProductTouchID from "./ProductTouchID";
 const ProductInformation = (props) => {
-  // const flat = props.attributes.map((el) => el.items).flat(1);
-  // const sizeSelect = flat.map((el) => (
-  //   <option key={el.id} value={el.value}>
-  //     {el.displayValue}
-  //   </option>
-  // ));
 
   const sizeValue = props.attributes.map((el) => el.items);
-  const sizeValue1 = props.attributes.map((el, i) => {
+  const attributes = props.attributes.map((el, i) => {
     const sizes = el.items;
     const name = el.name;
     return {
@@ -18,74 +15,118 @@ const ProductInformation = (props) => {
     };
   });
 
-  let show = [];
-
-  sizeValue1.forEach((el) => {
-    show.push(<p>{el.name}: </p>);
-    return el.sizes.forEach((size) => {
-      if(el.length === 1) {
-        show.push(
-          
-            <li>
-              <input type="radio" name='opt' value={size.id} />
-              <label htmlFor='opt'>{size.displayValue}</label>
-            </li>
-  
-        );
-      } else {
-        show.push(
-          
-          <li>
-            <input type="radio" name='opt' value={size.id} />
-            <label htmlFor='opt'>{size.displayValue}</label>
-          </li>
-
-      );
-      } 
-    });
+  let show1 = [];
+  let render = attributes.map(
+    (attr) =>
+      attr.name === "Size" && <ProductSize key={Math.random()} attr={attr} />
+  );
+  let render1 = attributes.map((attr) => {
+    return(
+    (attr.name === "Capacity" || attr.name === "Color")  && (
+        <ProductColorCapacity key={attr.name} attr={attr} />
+      ));
   });
 
-  // const attributes = props.attributes.map((attribute) => {
-  //  return sizeValue.forEach((el) => {
-  //     return<p key={attribute.name}>{attribute.name}: {el.displayValue}</p>
+  let render3 = attributes.map((attr) => {
+    return (
+      (attr.name === "With USB 3 ports" ||
+      attr.name === "Touch ID in keyboard") && (
+        <ProductTouchID key={attr.name} attr={attr}/>
+      )
+    )
+  })
 
-  //   })
-  // })
-
-  //  for (let i = 0; i < props.attributes.length; i++) {
-  //  for(let j = 0; j < props.sizeValue.length; j++) {
-  //     // return `${props.attributes[i]}: ${props.sizeValue[j]} `
-  //      console.log(props.attributes[i])
-  //  }
-
-  // }
-
-  // for (let i = 0; i < sizeValue1.length; i++) {
-  //   console.log(sizeValue1[i].name)
-  //   attribute = <p>{sizeValue1[i].name}: <select></select></p>
-  //   for (let j = 0; j < sizeValue.length; j++) {
-  //   }
-  // }
-
-  // // console.log(sizeValue1.map((el) => el.sizes.map((el) => el.id)));
-  // // const options = sizeValue1.map((el) =>
-  // //   el.sizes.map((el) => (
-  // //     <option key={el.id} value={el.value}>
-  // //       {el.displayValue}
-  // //     </option>
-  //   ))
-  // );
-
-  // console.log(show);
-
-  // console.log(sizeValue1)
+  
+  attributes.map((attr) => {
+    if (attr.name === "Size") {
+      show1.push(
+        <div key={attr.name} className={styles.wrap}>
+          <p>{attr.name}: </p>
+          <div className={styles.colorsDiv}>
+            {attr.sizes.map((el) => {
+              return (
+                <div key={el.id}>
+                  {el.displayValue}
+                  <input
+                    type="radio"
+                    className={styles.sizeInfo}
+                    style={{ backgroundColor: el.value }}
+                    value={el.value}
+                    name={attr.name}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    } else if (attr.name === "Color" || attr.name === "Capacity") {
+      show1.push(
+        <div key={attr.name} className={styles.wrap}>
+          <p>{attr.name}: </p>
+          <div className={styles.colorsDiv}>
+            {attr.sizes.map((el) => {
+              if (attr.name === "Color") {
+                return (
+                  <div
+                    key={el.id}
+                    className={styles.colorInfo}
+                    style={{ backgroundColor: el.value }}
+                    aria-label={el.id}
+                  ></div>
+                );
+              } else {
+                return (
+                  <div
+                    key={el.id}
+                    className={styles.sizeInfo}
+                    style={{ backgroundColor: el.value }}
+                    aria-label={el.id}
+                  >
+                    {el.displayValue}
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </div>
+      );
+    } else if (
+      attr.name === "With USB 3 ports" ||
+      attr.name === "Touch ID in keyboard"
+    ) {
+      show1.push(
+        <div key={attr.name} className={styles.wrap}>
+          <p>{attr.name}: </p>
+          <div className={styles.colorsDiv}>
+            {attr.sizes.map((el) => {
+              return (
+                <div
+                  key={el.id}
+                  className={styles.sizeInfo}
+                  style={{ backgroundColor: el.value }}
+                  aria-label={el.id}
+                >
+                  {el.displayValue}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+  });
+  // console.log(attributes);
+  console.log(render1)
   return (
     <div>
-      <h3>{props.brand}</h3>
-      <h4>{props.name}</h4>
-      <div>
-        <span>{show}</span>
+      <div className={styles.brandName}>
+        <h3>{props.brand}</h3>
+        <h4>{props.name}</h4>
       </div>
+      {render}
+      {render1}
+      {render3}
     </div>
   );
 };
