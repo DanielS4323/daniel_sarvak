@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import GetGraph from "./components/GetGraph";
-import DetailProduct from "./components/Products/Product/DetailProduct";
+import DetailProduct from "./components/Products/Product/DetailedProduct/DetailProduct";
 import NavBar from "./components/UI/NavBar";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";

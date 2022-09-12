@@ -1,10 +1,9 @@
 import React from "react";
-import ProductColorCapacity from "./ProductColor&Capacity";
+import ProductColorCapacity from "./DetailedProduct/ProductColor&Capacity";
 import styles from "./ProductInformation.module.css";
-import ProductSize from "./ProductSize";
-import ProductTouchID from "./ProductTouchID";
+import ProductSize from "./DetailedProduct/ProductSize";
+import ProductTouchID from "./DetailedProduct/ProductTouchID";
 const ProductInformation = (props) => {
-  const sizeValue = props.attributes.map((el) => el.items);
   const attributes = props.attributes.map((el, i) => {
     const sizes = el.items;
     const name = el.name;
@@ -14,7 +13,6 @@ const ProductInformation = (props) => {
     };
   });
 
-  let show1 = [];
   let render = attributes.map(
     (attr) =>
       attr.name === "Size" && <ProductSize key={Math.random()} attr={attr} />
@@ -36,15 +34,17 @@ const ProductInformation = (props) => {
     );
   });
 
+
+
   return (
     <div>
       <div className={styles.brandName}>
         <h3>{props.brand}</h3>
         <h4>{props.name}</h4>
       </div>
-      {render}
-      {render1}
-      {render3}
+     {render}
+     {render1}
+     {render3}
     </div>
   );
 };

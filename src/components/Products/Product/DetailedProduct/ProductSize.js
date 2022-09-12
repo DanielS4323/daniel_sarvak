@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ProductInformation.module.css";
+import styles from "../ProductInformation.module.css";
 
 const ProductSize = (props) => {
   console.log(props.attr);

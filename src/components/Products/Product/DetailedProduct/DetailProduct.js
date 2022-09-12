@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { GET_PRODUCT_BY_ID } from "../../../GraphQL/Queries";
-import Layout from "../../Layout/Layout";
+import { GET_PRODUCT_BY_ID } from "../../../../GraphQL/Queries";
+import Layout from "../../../Layout/Layout";
 import { useQuery } from "@apollo/client";
 import ProductImages from "./ProductImages";
-import ProductInformation from "./ProductInformation";
+import ProductInformation from "../ProductInformation";
 import styles from "./DetailProduct.module.css"
 
 const DetailProduct = () => {
