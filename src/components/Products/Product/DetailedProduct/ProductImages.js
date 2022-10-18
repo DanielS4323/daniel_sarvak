@@ -4,13 +4,16 @@ import { Carousel } from "react-responsive-carousel";
 import styles from "./ProductImages.module.css";
 
 const ProductImages = (props) => {
-  const images = props.images.map((el) => <div key={el}><img src={el} alt="product image" /></div>);
+  const images = props.images.map((el) => (
+    <div key={el}>
+      <img src={el} alt="product image" />
+    </div>
+  ));
   return (
     <div>
       <Carousel infiniteLoop className={styles.carousel}>
-       {images}
+        {images}
       </Carousel>
-      
     </div>
   );
 };
