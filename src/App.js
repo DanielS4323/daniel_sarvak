@@ -14,8 +14,10 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate replace to="/product/all" />} />
-        <Route path="/product/:categories" element={<ProductPage />} />
-        <Route path="product/:categories/:id" element={<DetailProduct />} />
+        <Route path="/product">
+          <Route path=":categories" element={<ProductPage />} />
+          <Route path=":categories/:id" element={<DetailProduct />} />
+        </Route>
       </Routes>
     </Router>
   );
