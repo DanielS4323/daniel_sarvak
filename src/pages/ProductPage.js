@@ -7,21 +7,20 @@ import { GET_CATEGORIESDYNAMIC } from "../GraphQL/Queries";
 import styles from "./ProductPage.module.css";
 
 const ProductPage = () => {
-  const { id } = useParams();
+  const { categories } = useParams();
   const { data, loading, error } = useQuery(GET_CATEGORIESDYNAMIC, {
-    variables: { name: id },
+    variables: { name: categories },
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: </p>;
 
   let products = data.category.products.map((product) => (
-    <ShowProducts key={product.id} product={product} />
+    <ShowProducts key={product.id} product={product} id={categories}/>
   ));
 
   return (
     <Layout>
-      <h2>{id}</h2>
-
+      <h2>{categories}</h2>
       <div className={styles.wrap}>{products}</div>
     </Layout>
   );
