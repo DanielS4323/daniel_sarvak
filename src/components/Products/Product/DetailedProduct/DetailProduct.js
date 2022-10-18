@@ -7,6 +7,7 @@ import ProductImages from "./ProductImages";
 import styles from "./DetailProduct.module.css";
 import ProductTitle from "./ProductTitle";
 import AttributesBar from "./AttributesBar";
+import AddToCartBtn from "../../../UI/AddToCartBtn";
 
 const DetailProduct = () => {
   const { id } = useParams();
@@ -14,20 +15,23 @@ const DetailProduct = () => {
     variables: { id },
   });
   const attributes = data?.product?.attributes
+  const inStock = data?.product.inStock
+  console.log(inStock)
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: </p>;
   console.log(data.product.attributes[0]);
   return (
     <Layout>
       <section className={styles.wrap}>
-        <ProductImages images={data.product.gallery} />
-        <div>
+        <ProductImages images={data.product.gallery} inStock={inStock}/>
+        <div className={styles['detail-bar']}>
           <ProductTitle
             brand={data.product.brand}
             name={data.product.name}
             price={data.product.prices[0].amount}
           />
               <AttributesBar attributes={attributes}/>
+              {inStock && <AddToCartBtn />}
         </div>
       </section>
     </Layout>
