@@ -6,7 +6,7 @@ import styles from "./ProductImages.module.css";
 const ProductImages = (props) => {
   const images = props.images.map((el) => (
     <div key={el}>
-      <img src={el} alt="product image" />
+      <img src={el} alt="product pictures" />
     </div>
   ));
   return (
