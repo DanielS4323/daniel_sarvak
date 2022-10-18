@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,8 +14,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate replace to="/product/all" />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/detail/:id" element={<DetailProduct />} />
+        <Route path="/product/:categories" element={<ProductPage />} />
+        <Route path="product/:categories/:id" element={<DetailProduct />} />
       </Routes>
     </Router>
   );

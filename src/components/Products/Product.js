@@ -9,8 +9,11 @@ const Product = (props) => {
     ""
   );
 
+
+  
+
   return (
-    <Link to={`/detail/${product.id}`} className={styles.container}>
+    <Link to={`/product/${props.id}/${product.id}`} className={styles.container}>
       <div className={!product.inStock ? styles.shade : ""}>{OutOfStock}</div>
       <img
         className={styles.productImage}
