@@ -6,6 +6,7 @@ const ProductTitle = (props) => {
     <div className={styles.title}>
       <h3>{props.brand}</h3>
       <h4>{props.name}</h4>
+      <h4>${props.price}</h4>
     </div>
   );
 };
