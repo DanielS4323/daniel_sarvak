@@ -5,7 +5,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import "./App.css";
 import DetailProduct from "./components/Products/Product/DetailedProduct/DetailProduct";
 import ProductPage from "./pages/ProductPage";
 
