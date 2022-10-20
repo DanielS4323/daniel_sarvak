@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ShowProducts.module.css";
 import { Link } from "react-router-dom";
+
 const Product = (props) => {
   const product = props.product;
   const OutOfStock = !product.inStock ? (
@@ -9,11 +10,11 @@ const Product = (props) => {
     ""
   );
 
-
-  
-
   return (
-    <Link to={`/product/${props.id}/${product.id}`} className={styles.container}>
+    <Link
+      to={`/product/${props.id}/${product.id}`}
+      className={styles.container}
+    >
       <div className={!product.inStock ? styles.shade : ""}>{OutOfStock}</div>
       <img
         className={styles.productImage}

@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.container:hover {
+  box-shadow: 7px 6px 18px -7px rgba(0,0,0,0.75);
+}
+
 .container,
 a:active {
   text-decoration: none;
