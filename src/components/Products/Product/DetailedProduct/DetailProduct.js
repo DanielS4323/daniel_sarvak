@@ -14,25 +14,24 @@ const DetailProduct = () => {
   const { data, loading, error } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id },
   });
-  const attributes = data?.product?.attributes
-  const inStock = data?.product.inStock
-  console.log(inStock)
+  const attributes = data?.product?.attributes;
+  const inStock = data?.product?.inStock;
+  console.log(inStock);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: </p>;
-  console.log(data.product.attributes[0]);
   return (
     <Layout>
       <section className={styles.wrap}>
-        <ProductImages images={data.product.gallery} inStock={inStock}/>
-        <div className={styles['detail-bar']}>
+        <ProductImages images={data.product.gallery} inStock={inStock} />
+        <div className={styles["detail-bar"]}>
           <ProductTitle
             brand={data.product.brand}
             name={data.product.name}
             price={data.product.prices[0].amount}
           />
-              <AttributesBar attributes={attributes}/>
-              {inStock && <AddToCartBtn />}
-             <p dangerouslySetInnerHTML={{__html:data.product.description}}></p>
+          <AttributesBar attributes={attributes} />
+          {inStock && <AddToCartBtn />}
+          <p className={styles.description} dangerouslySetInnerHTML={{ __html: data.product.description }}></p>
         </div>
       </section>
     </Layout>
