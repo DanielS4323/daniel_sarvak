@@ -32,6 +32,7 @@ const DetailProduct = () => {
           />
               <AttributesBar attributes={attributes}/>
               {inStock && <AddToCartBtn />}
+             <p dangerouslySetInnerHTML={{__html:data.product.description}}></p>
         </div>
       </section>
     </Layout>
