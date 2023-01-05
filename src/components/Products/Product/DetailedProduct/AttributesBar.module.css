@@ -20,12 +20,12 @@
   border: 1px solid black;
 }
 
-.color:focus {
+/* .color:focus {
   border: 3px solid #5ece7b;
-}
-.text:focus {
+} */
+/* .text:focus {
   background-color: #5ece7b;
-}
+} */
 
 .text:hover,
 .color:hover {
@@ -39,4 +39,6 @@
   width: 30px;
   height: 30px;
   border: 1px solid black;
+  color: transparent;
 }
+
