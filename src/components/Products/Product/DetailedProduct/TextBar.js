@@ -1,23 +1,36 @@
 import React from "react";
-import styles from './AttributesBar.module.css'
+import styles from "./AttributesBar.module.css";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
 
-const TextBar = (props) => {
-  console.log(props.attr);
+
+const TextBar = ({ attr, setSelectedTextBar }) => {
+  const onClickHandle = (e) => {
+    
+    setSelectedTextBar({val: e.target.value});
+  };
+
+
   return (
-    <div key={props.attr.name}>
-      <p>{props.attr.name}: </p>
+    <div key={attr.name}>
+      <h4>{attr.name}: </h4>
       <div className={styles.colorsDiv}>
-        {props.attr.items.map((el) => {
-          return (
-            <input
+        <RadioGroup
+          aria-labelledby="demo-radio-buttons-group-label"
+          defaultValue="female"
+          name="radio-buttons-group"
+          onChange={onClickHandle}
+        >
+          {attr.items.map((el) => (
+            <FormControlLabel
               key={el.id}
-              type="button"
-              className={styles.text}
               value={el.value}
-              name={el.name}
+              control={<Radio />}
+              label={el.value}
             />
-          );
-        })}
+          ))}
+        </RadioGroup>
       </div>
     </div>
   );

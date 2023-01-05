@@ -1,23 +1,29 @@
 import React from "react";
-import styles from './AttributesBar.module.css'
+import styles from "./AttributesBar.module.css";
 
-const SwatchBar = (props) => {
-  console.log(props.attr);
+const SwatchBar = ({ attr, setSelectedSwatchBar }) => {
+  const onClickHandle = (e) => {
+    setSelectedSwatchBar(e.target.value);
+    e.target.style.border = '2px solid red'
+  };
+  
   return (
     <div className={styles.wrap}>
-      <p>{props.attr.name}: </p>
+      <p>{attr.name}: </p>
       <div className={styles.colorsDiv}>
-          {props.attr.items.map((el) => {
-            return (
-              <input
-                key={el.id}
-                type="button"
-                className={styles.color}
-                name={el.name}
-                style={{ backgroundColor: el.value }}
-              />
-            );
-          })}
+        {attr.items.map((el) => {
+          return (
+            <input
+              key={el.id}
+              type="button"
+              className={styles.color}
+              name={el.name}
+              style={{ backgroundColor: el.value }}
+              value={el.displayValue}
+              onClick={onClickHandle}
+            />
+          );
+        })}
       </div>
     </div>
   );

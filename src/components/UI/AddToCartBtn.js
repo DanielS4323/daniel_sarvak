@@ -1,10 +1,12 @@
-import React from 'react'
-import styles from './AddToCartBtn.module.css'
+import React from "react";
+import styles from "./AddToCartBtn.module.css";
 
-const AddToCartBtn = () => {
+const AddToCartBtn = ({ onClick, disabled }) => {
   return (
-    <button className={styles.btn}>Add To Cart</button>
-  )
-}
+    <button disabled={disabled} onClick={onClick} className={styles.btn}>
+      Add To Cart
+    </button>
+  );
+};
 
-export default AddToCartBtn
+export default AddToCartBtn;
