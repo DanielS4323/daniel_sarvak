@@ -3,7 +3,8 @@ import styles from "./AttributesBar.module.css";
 
 const SwatchBar = ({ attr, setSelectedSwatchBar }) => {
   const onClickHandle = (e) => {
-    setSelectedSwatchBar(e.target.value);
+    
+    setSelectedSwatchBar({[attr.name]: e.target.value});
     e.target.style.border = '2px solid red'
   };
   

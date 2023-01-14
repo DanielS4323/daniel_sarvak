@@ -28,7 +28,7 @@ const DetailProduct = () => {
       brand: data.product.brand,
       name: data.product.name,
       price: data.product.prices[0].amount,
-      attributes: [selectedTextBar, selectedSwatchBar],
+      attributes: [selectedTextBar?? 'No options', selectedSwatchBar ?? 'No options'],
     };
     console.log(addedItem);
   };

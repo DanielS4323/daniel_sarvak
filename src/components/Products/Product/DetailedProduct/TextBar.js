@@ -8,7 +8,12 @@ import Radio from "@mui/material/Radio";
 const TextBar = ({ attr, setSelectedTextBar }) => {
   const onClickHandle = (e) => {
     
-    setSelectedTextBar({val: e.target.value});
+    if(e.target.checked) {
+      setSelectedTextBar((prev) => {
+        return {...prev, [attr.name]: e.target.value}
+      });
+
+    }
   };
 
 
@@ -24,6 +29,7 @@ const TextBar = ({ attr, setSelectedTextBar }) => {
         >
           {attr.items.map((el) => (
             <FormControlLabel
+            
               key={el.id}
               value={el.value}
               control={<Radio />}
