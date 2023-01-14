@@ -4,17 +4,18 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import cartSvg from "../../assets/icons/cart.svg";
+import styles from "./CartPop.module.css";
 
 const style = {
   position: "absolute",
   top: "30%",
-  left: "75%",
+  left: "70%",
   transform: "translate(-30%, -75%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  textAlign: "center",
 };
 
 const btnStyle = {};
@@ -26,7 +27,7 @@ export default function CartPop() {
 
   return (
     <div>
-      <Button sx={btnStyle} onClick={handleOpen}>
+      <Button className={styles.Button} sx={btnStyle} onClick={handleOpen}>
         <img src={cartSvg} alt="cart" />
       </Button>
       <Modal
@@ -37,11 +38,9 @@ export default function CartPop() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            My Cart
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 3 }}></Typography>
         </Box>
       </Modal>
     </div>

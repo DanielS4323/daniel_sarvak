@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES } from "../../GraphQL/Queries";
 import CartPop from "./CartPop";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const { error, loading, data } = useQuery(GET_CATEGORIES);
 
   if (loading) return <p>Loading...</p>;
