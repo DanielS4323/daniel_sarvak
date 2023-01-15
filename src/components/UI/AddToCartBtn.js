@@ -3,7 +3,7 @@ import styles from "./AddToCartBtn.module.css";
 
 const AddToCartBtn = ({ onClick, disabled }) => {
   return (
-    <button disabled={disabled} onClick={onClick} className={styles.btn}>
+    <button disabled={disabled} onClick={onClick} className={styles}>
       Add To Cart
     </button>
   );

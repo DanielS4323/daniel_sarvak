@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import styles from "./AttributesBar.module.css";
 
 const SwatchBar = ({ attr, setSelectedSwatchBar }) => {
-  const [active, setActive] = useState();
+  const [active, setActive] = useState("Green");
   const onClickHandle = (e) => {
     setSelectedSwatchBar({ [attr.name]: e.target.value });
     setActive(e.target.id);
-    console.log(e.target.id);
-    // e.target.style.border = "2px solid red";
   };
 
   return (
