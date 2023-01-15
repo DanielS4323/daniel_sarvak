@@ -1,14 +1,14 @@
-import React from 'react'
-import Footer from '../UI/Footer'
-import NavBar from '../UI/NavBar'
-const Layout = (props) => {
+import React from "react";
+import Footer from "../UI/Footer";
+import NavBar from "../UI/NavBar";
+const Layout = ({ children }) => {
   return (
     <React.Fragment>
-        <NavBar/>
-        {props.children}
-        <Footer/>
+      <NavBar />
+      {children}
+      <Footer />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

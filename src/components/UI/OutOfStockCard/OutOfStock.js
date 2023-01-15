@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./OutOfStock.module.css";
-const OutOfStock = (props) => {
-  return <div className={styles.frame}>{props.children}</div>;
+const OutOfStock = ({ children }) => {
+  return <div className={styles.frame}>{children}</div>;
 };
 
 export default OutOfStock;

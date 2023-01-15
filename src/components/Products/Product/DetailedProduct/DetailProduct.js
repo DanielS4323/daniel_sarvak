@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { GET_PRODUCT_BY_ID } from "../../../../GraphQL/Queries";
 import Layout from "../../../Layout/Layout";
 import { useQuery } from "@apollo/client";
-import ProductImages from "./ProductImages";
+import ProductImages from "../ProductImages";
 import styles from "./DetailProduct.module.css";
-import ProductTitle from "./ProductTitle";
-import AttributesBar from "./AttributesBar";
+import ProductTitle from "../ProductTitle";
+import AttributesBar from "../AttributesBar";
 import AddToCartBtn from "../../../UI/AddToCartBtn";
 
 const DetailProduct = () => {
@@ -28,7 +28,10 @@ const DetailProduct = () => {
       brand: data.product.brand,
       name: data.product.name,
       price: data.product.prices[0].amount,
-      attributes: [selectedTextBar?? 'No options', selectedSwatchBar ?? 'No options'],
+      attributes: [
+        selectedTextBar ?? "No options",
+        selectedSwatchBar ?? "No options",
+      ],
     };
     console.log(addedItem);
   };
@@ -49,6 +52,7 @@ const DetailProduct = () => {
             setSelectedTextBar={setSelectedTextBar}
           />
           {inStock && <AddToCartBtn onClick={onClickAddToCart} />}
+          {!inStock && <p>We are sorry, product is currently out of stock.</p>}
 
           <p
             className={styles.description}

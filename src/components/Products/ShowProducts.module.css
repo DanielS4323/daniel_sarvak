@@ -1,13 +1,13 @@
 .container {
   margin: 3rem;
-  width: 15rem;
+  width: fit-content;
   height: fit-content;
   text-decoration: none;
   position: relative;
 }
 
 .container:hover {
-  box-shadow: 7px 6px 18px -7px rgba(0,0,0,0.75);
+  box-shadow:14px 5px 27px 5px  rgba(94, 206, 123, 1);
   
 }
 
@@ -19,12 +19,11 @@ a:active {
 
 .productImage {
   width: 15rem;
-  
 }
 
 .shade {
   width: 15rem;
-  height: 95%;
+  height: 100%;
   background: rgba(221, 218, 218, 0.437);
   position: absolute;
   top: 0;
@@ -39,5 +38,5 @@ a:active {
   font-size: 1.6rem;
   width: 100%;
   text-align: center;
-  color: rgba(128, 128, 128, 0.767);
+  color: rgba(26, 24, 24, 0.521);
 }

@@ -1,11 +1,11 @@
 .wrap {
   display: flex;
-  justify-content:left;
-  margin: 1em;
+
+  margin: 2rem;
 }
 
 .detail-bar {
-    margin: 0 3em;
+  margin: 0 7rem;
 }
 
 .description {

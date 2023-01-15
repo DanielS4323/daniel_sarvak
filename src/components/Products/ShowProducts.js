@@ -1,10 +1,7 @@
 import React from "react";
 import Product from "./Product";
 
-const ShowProducts = (props) => {
-  const product = props.product;
-  const id = props.id
-
+const ShowProducts = ({ product, id }) => {
   return <Product id={id} product={product} />;
 };
 

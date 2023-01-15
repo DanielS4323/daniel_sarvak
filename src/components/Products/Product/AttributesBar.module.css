@@ -33,12 +33,17 @@
   cursor: pointer;
 }
 
-.color {
+input {
   margin: 0.2em;
   text-align: center;
   width: 30px;
   height: 30px;
   border: 1px solid black;
   color: transparent;
+  
+}
+
+.active {
+  border: 2px solid rgb(210, 13, 13);
 }
 
