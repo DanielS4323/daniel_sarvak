@@ -6,7 +6,7 @@ nav ul {
 
 nav li {
   padding: 1em;
-  margin: 0 .5em;
+  margin: 0 0.5em;
   font-weight: bold;
 }
 
@@ -24,4 +24,15 @@ nav a.active {
   display: flex;
   margin-left: auto;
   margin-right: 5em;
+}
+
+.cart > span {
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 40px;
+  right: 130px;
+  background-color: #5ece7b;
+  border-radius: 50%;
 }
