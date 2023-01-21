@@ -4,9 +4,12 @@ import styles from "./NavBar.module.css";
 import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES } from "../../GraphQL/Queries";
 import CartPop from "./CartPop";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const { error, loading, data } = useQuery(GET_CATEGORIES);
+
+  const totalItems = useSelector((state) => state.cart.totalItems);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -31,7 +34,10 @@ const NavBar = () => {
         ))}
         <div className={styles.cart}>
           <li>currency</li>
-          <li><CartPop/></li>
+          <>
+            <CartPop />
+            {totalItems !== 0 && <span>{totalItems}</span>}
+          </>
         </div>
       </ul>
     </nav>
