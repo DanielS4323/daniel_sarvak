@@ -1,4 +1,19 @@
-Button:hover {
-    background-color: #5ECE7B;
-    color: #5ECE7B;
+.buttonCart:hover {
+  background-color: #5ece7b;
+  border: none;
+}
+
+.boxModal {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  transform: translate(-80%, -10%);
+  width: 30rem;
+  height: 30rem;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+h4 {
+  text-align: center;
 }
