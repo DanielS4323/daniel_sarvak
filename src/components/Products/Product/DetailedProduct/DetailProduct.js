@@ -8,11 +8,14 @@ import styles from "./DetailProduct.module.css";
 import ProductTitle from "../ProductTitle";
 import AttributesBar from "../AttributesBar";
 import AddToCartBtn from "../../../UI/AddToCartBtn";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../../store/CartSlice";
 
 const DetailProduct = () => {
-  const [selectedTextBar, setSelectedTextBar] = useState();
-  const [selectedSwatchBar, setSelectedSwatchBar] = useState();
+  const [selectedTextBar, setSelectedTextBar] = useState(null);
+  const [selectedSwatchBar, setSelectedSwatchBar] = useState(null);
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { data, loading, error } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id },
   });
@@ -28,12 +31,16 @@ const DetailProduct = () => {
       brand: data.product.brand,
       name: data.product.name,
       price: data.product.prices[0].amount,
+      image: data.product.gallery[0],
+      id: `${data.product.id}`,
       attributes: [
         selectedTextBar ?? "No options",
         selectedSwatchBar ?? "No options",
       ],
     };
-    console.log(addedItem);
+    // console.log(addedItem)
+    dispatch(cartActions.addToCart(addedItem));
+    
   };
 
   return (
