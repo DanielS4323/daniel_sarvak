@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import ShowProducts from "../components/Products/ShowProducts";
@@ -8,6 +9,7 @@ import styles from "./ProductPage.module.css";
 
 const ProductPage = () => {
   const { categories } = useParams();
+  const myCart = useSelector((state) => state.cart.myCart);
   const { data, loading, error } = useQuery(GET_CATEGORIESDYNAMIC, {
     variables: { name: categories },
   });
@@ -15,7 +17,7 @@ const ProductPage = () => {
   if (error) return <p>Error: </p>;
 
   let products = data.category.products.map((product) => (
-    <ShowProducts key={product.id} product={product} id={categories}/>
+    <ShowProducts key={product.id} product={product} id={categories} />
   ));
 
   return (
