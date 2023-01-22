@@ -15,3 +15,17 @@
 .listItem {
     width: 40%;
 }
+
+.removeBtn {
+    margin: .5rem;
+    width: 5rem;
+    height: 2.5rem;
+    background-color: red;
+
+}
+
+/* .carousel {
+    width: 10rem;
+    margin: 0 2rem;
+  } */
+  
