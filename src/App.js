@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import DetailProduct from "./components/Products/Product/DetailedProduct/DetailProduct";
+import DetailProduct from "./components/Product/DetailedProduct/DetailProduct";
 import ProductPage from "./pages/ProductPage";
 
 const App = () => {
