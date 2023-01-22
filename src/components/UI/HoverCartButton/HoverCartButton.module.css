@@ -1,0 +1,17 @@
+.display {
+  display: block;
+  position: absolute;
+  bottom: 6rem;
+  left: 12rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+}
+
+.hide {
+  display: none;
+}
+.display:hover {
+    transform: scale(1.1);
+  border: 1px solid black;
+}

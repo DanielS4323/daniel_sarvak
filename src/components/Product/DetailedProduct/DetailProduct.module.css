@@ -1,0 +1,18 @@
+.wrap {
+  display: flex;
+  margin: 2rem;
+}
+
+.detail-bar {
+  margin: 0 7rem;
+}
+
+.description {
+  height: 10em;
+  overflow-y: scroll;
+}
+
+.removeBtn {
+  margin-top: .3rem;
+  background-color: red;
+}
