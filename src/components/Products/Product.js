@@ -5,6 +5,7 @@ import formatCurrency from "../../utilities/formatCurrency";
 import HoveringCartButton from "../UI/HoverCartButton/HoveringCartButton";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/CartSlice";
+import formatAttributes from "../../utilities/formatAttributes";
 
 const Product = ({ product, id }) => {
   const [displayBtn, setDisplayBtn] = useState("hide");
@@ -24,10 +25,16 @@ const Product = ({ product, id }) => {
   };
   const cartButtonHandler = (e) => {
     e.preventDefault();
+    const attributes = formatAttributes(product.attributes);
     dispatch(
-      cartActions.addToCart({ ...product, price: product.prices[0].amount,image: product.gallery })
+      cartActions.addToCart({
+        ...product,
+        price: product.prices[0].amount,
+        image: product.gallery,
+        chosenAttributes: attributes,
+      })
     );
-    console.log(product);
+    // console.log(product);
   };
 
   return (
