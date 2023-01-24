@@ -10,7 +10,7 @@ import AttributesBar from "../AttributesBar";
 import AddToCartBtn from "../../UI/AddToCartButton/AddToCartBtn";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/CartSlice";
-import carouselStyle from './Carousel.module.css'
+import carouselStyle from "./Carousel.module.css";
 
 const DetailProduct = () => {
   const [selectedTextBar, setSelectedTextBar] = useState(null);
@@ -42,12 +42,6 @@ const DetailProduct = () => {
     // console.log(addedItem)
     dispatch(cartActions.addToCart(addedItem));
   };
-
-  const removeFromCartHandler = () => {
-    dispatch(cartActions.removeFromCart(data.product.id));
-  };
-
-
 
   return (
     <Layout>

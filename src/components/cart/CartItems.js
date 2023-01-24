@@ -9,14 +9,16 @@ const CartItems = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const items = myCart.map((item) => <CartItem key={item.id} {...item} />);
 
-  console.log(123, myCart)
+  console.log(123, myCart);
 
   return (
     <>
       <ul className={styles.list}>{items}</ul>
-      <span className={styles.totalPrice}>
-        Total: {formatCurrency(totalPrice)}
-      </span>
+      {totalPrice > 0 && (
+        <span className={styles.totalPrice}>
+          Total: {formatCurrency(totalPrice)}
+        </span>
+      )}
     </>
   );
 };

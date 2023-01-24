@@ -13,6 +13,8 @@ export default function CartPop() {
   const handleClose = () => setOpen(false);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
+  
+
   return (
     <div>
       <Button className={styles.buttonCart} onClick={handleOpen}>

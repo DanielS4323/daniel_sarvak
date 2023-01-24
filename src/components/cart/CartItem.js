@@ -5,12 +5,15 @@ import formatCurrency from "../../utilities/formatCurrency";
 import ProductImages from "../Product/ProductImages";
 import styles from "./CartItem.module.css";
 import carouselCartStyle from "./CarouselCart.module.css";
-const CartItem = ({ brand, name, price, image, quantity, id }) => {
+
+const CartItem = ({ brand, name, price, image, quantity, id, chosenAttributes}) => {
   const dispatch = useDispatch();
 
   const removeFromCartHanlder = () => {
     dispatch(cartActions.removeFromCart(id));
   };
+
+  console.log(chosenAttributes)
 
   return (
     <div className={styles.wrap}>
@@ -21,9 +24,14 @@ const CartItem = ({ brand, name, price, image, quantity, id }) => {
           {formatCurrency(price)}
           <span> x {quantity}</span>
         </p>
+       
       </li>
-      <ProductImages showThumbs={false} style={carouselCartStyle.carousel} images={image} />
-      {/* <img className={styles.image} src={image} alt="product" /> */}
+      <ProductImages
+        showThumbs={false}
+        style={carouselCartStyle.carousel}
+        images={image}
+      />
+
       <button className={styles.removeBtn} onClick={removeFromCartHanlder}>
         Remove
       </button>
