@@ -11,6 +11,7 @@ import AddToCartBtn from "../../UI/AddToCartButton/AddToCartBtn";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/CartSlice";
 import carouselStyle from "./Carousel.module.css";
+import formatAttributes from "../../../utilities/formatAttributes";
 
 const DetailProduct = () => {
   const [selectedTextBar, setSelectedTextBar] = useState(null);
@@ -34,10 +35,11 @@ const DetailProduct = () => {
       price: data.product.prices[0].amount,
       image: data.product.gallery,
       id: `${data.product.id}`,
-      attributes: [
-        selectedTextBar ?? "No options",
-        selectedSwatchBar ?? "No options",
-      ],
+      chosenAttributes: formatAttributes(data.product.attributes, [
+        selectedTextBar,
+        selectedSwatchBar,
+      ]),
+      attributes: [...attributes],
     };
     // console.log(addedItem)
     dispatch(cartActions.addToCart(addedItem));
