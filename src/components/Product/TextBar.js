@@ -4,18 +4,18 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 
-
 const TextBar = ({ attr, setSelectedTextBar }) => {
   const onClickHandle = (e) => {
-    
-    if(e.target.checked) {
+    if (e.target.checked) {
       setSelectedTextBar((prev) => {
-        return {...prev, [attr.name]: e.target.value}
+        return {
+          ...prev,
+          name: attr.name,
+          value: e.target.value,
+        };
       });
-
     }
   };
-
 
   return (
     <div key={attr.name}>
@@ -29,8 +29,7 @@ const TextBar = ({ attr, setSelectedTextBar }) => {
         >
           {attr.items.map((el) => (
             <FormControlLabel
-            
-              key={el.id}
+              key={el.value}
               value={el.value}
               control={<Radio />}
               label={el.value}
