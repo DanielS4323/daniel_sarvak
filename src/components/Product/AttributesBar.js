@@ -11,7 +11,7 @@ const AttributesBar = ({
     if (attr.type === "text") {
       return (
         <TextBar
-          key={attr.id}
+          key={attr.name}
           attr={attr}
           setSelectedTextBar={setSelectedTextBar}
         />
@@ -19,7 +19,7 @@ const AttributesBar = ({
     } else {
       return (
         <SwatchBar
-          key={attr.id}
+          key={attr.name}
           attr={attr}
           setSelectedSwatchBar={setSelectedSwatchBar}
         />
