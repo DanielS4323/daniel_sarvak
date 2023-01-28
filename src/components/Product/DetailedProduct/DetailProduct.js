@@ -32,7 +32,7 @@ const DetailProduct = () => {
     const addedItem = {
       brand: data.product.brand,
       name: data.product.name,
-      price: data.product.prices[0].amount,
+      prices: data.product.prices,
       image: data.product.gallery,
       id: `${data.product.id}`,
       chosenAttributes: formatAttributes(data.product.attributes, [
@@ -57,7 +57,7 @@ const DetailProduct = () => {
           <ProductTitle
             brand={data.product.brand}
             name={data.product.name}
-            price={data.product.prices[0].amount}
+            prices={data.product.prices}
           />
           <AttributesBar
             attributes={attributes}
