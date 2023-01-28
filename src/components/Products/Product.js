@@ -3,13 +3,15 @@ import styles from "./ShowProducts.module.css";
 import { Link } from "react-router-dom";
 import formatCurrency from "../../utilities/formatCurrency";
 import HoveringCartButton from "../UI/HoverCartButton/HoveringCartButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/CartSlice";
 import formatAttributes from "../../utilities/formatAttributes";
+import findCurrency from "../../utilities/findCurrency";
 
 const Product = ({ product, id }) => {
   const [displayBtn, setDisplayBtn] = useState("hide");
   const dispatch = useDispatch();
+  const selectedCurrency = useSelector((state) => state.cart.currency);
   const OutOfStock = !product.inStock ? (
     <p className={styles.inStock}>Out of Stock</p>
   ) : (
@@ -29,7 +31,6 @@ const Product = ({ product, id }) => {
     dispatch(
       cartActions.addToCart({
         ...product,
-        price: product.prices[0].amount,
         image: product.gallery,
         chosenAttributes: attributes,
       })
@@ -53,7 +54,12 @@ const Product = ({ product, id }) => {
         />
         <div className={styles.text}>
           <p>{product?.name}</p>
-          <p>{formatCurrency(product?.prices[0].amount)}</p>
+          <p>
+            {formatCurrency(
+              findCurrency(product.prices, selectedCurrency),
+              selectedCurrency
+            )}
+          </p>
         </div>
         {product.inStock && (
           <HoveringCartButton
