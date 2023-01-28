@@ -9,7 +9,6 @@ import styles from "./ProductPage.module.css";
 
 const ProductPage = () => {
   const { categories } = useParams();
-  const myCart = useSelector((state) => state.cart.myCart);
   const { data, loading, error } = useQuery(GET_CATEGORIESDYNAMIC, {
     variables: { name: categories },
   });
