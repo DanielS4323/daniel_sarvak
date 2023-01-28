@@ -1,3 +1,13 @@
-.title {
-    
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.productBrand {
+  font-weight: 600;
+}
+.productBrand,
+.productName,
+.productPrice {
+  text-align: left;
 }
