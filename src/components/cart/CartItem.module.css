@@ -17,11 +17,14 @@
 }
 
 .removeBtn {
+    color: white;
     margin: .5rem;
     width: 5rem;
     height: 2.5rem;
     background-color: red;
-
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* .carousel {
