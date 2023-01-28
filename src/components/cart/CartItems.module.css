@@ -1,7 +1,9 @@
-.totalPrice {
-  text-align: right;
-}
-
 .list {
   list-style: none;
+}
+
+
+.totalPrice {
+  padding: 1.5rem;
+  text-align: left;
 }
