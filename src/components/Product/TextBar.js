@@ -20,7 +20,7 @@ const TextBar = ({ attr, setSelectedTextBar }) => {
   return (
     <div key={attr.name}>
       <h4>{attr.name}: </h4>
-      <div className={styles.colorsDiv}>
+      <div>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"
