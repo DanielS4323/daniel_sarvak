@@ -4,9 +4,8 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     myCart: [],
-    currency: "",
+    currency: "USD",
     totalItems: 0,
-    totalPrice: 0,
   },
   reducers: {
     addToCart(state, action) {
@@ -16,10 +15,8 @@ const cartSlice = createSlice({
       state.totalItems++;
       if (!existingItem) {
         state.myCart.push({ ...newItem, quantity: 1 });
-        state.totalPrice = state.totalPrice + newItem.price;
       } else {
         existingItem.quantity++;
-        state.totalPrice += existingItem.price;
       }
     },
     removeFromCart(state, action) {
@@ -30,13 +27,17 @@ const cartSlice = createSlice({
       }
       if (existingItem.quantity > 1) {
         existingItem.quantity--;
-        state.totalPrice -= existingItem.price;
+
         state.totalItems--;
       } else {
         state.myCart = state.myCart.filter((item) => item.id !== id);
-        state.totalPrice -= existingItem.price;
+
         state.totalItems--;
       }
+    },
+    selectCurrency(state, action) {
+      const chosenCurrency = action.payload;
+      state.currency = chosenCurrency;
     },
   },
 });
