@@ -4,10 +4,10 @@ import styles from "./ProductTitle.module.css";
 
 const ProductTitle = ({ brand, name, price }) => {
   return (
-    <div className={styles.title}>
-      <h3>{brand}</h3>
-      <h4>{name}</h4>
-      <h4>{formatCurrency(price)}</h4>
+    <div className={styles.wrap}>
+      <p className={styles.productBrand}>{brand}</p>
+      <p className={styles.productName}>{name}</p>
+      <p className={styles.productPrice}>{formatCurrency(price)}</p>
     </div>
   );
 };
