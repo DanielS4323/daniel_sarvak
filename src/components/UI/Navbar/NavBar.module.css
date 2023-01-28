@@ -31,8 +31,8 @@ nav a.active {
   width: 18px;
   height: 18px;
   position: absolute;
-  top: 40px;
-  right: 130px;
+  top: 2.5rem;
+  right: 5.1rem;
   background-color: #5ece7b;
   border-radius: 50%;
 }

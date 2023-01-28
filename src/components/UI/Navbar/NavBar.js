@@ -34,10 +34,10 @@ const NavBar = () => {
         ))}
         <div className={styles.cart}>
           <li>currency</li>
-          <>
+          <React.Fragment>
             <CartPop />
             {totalItems !== 0 && <span>{totalItems}</span>}
-          </>
+          </React.Fragment>
         </div>
       </ul>
     </nav>
