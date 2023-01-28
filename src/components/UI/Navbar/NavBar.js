@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES } from "../../../GraphQL/Queries";
 import CartPop from "../CartPop/CartPop";
 import { useSelector } from "react-redux";
+import CurrencySelect from "../../CurrencySelect/CurrencySelect";
 
 const NavBar = () => {
   const { error, loading, data } = useQuery(GET_CATEGORIES);
@@ -30,10 +31,11 @@ const NavBar = () => {
             <NavLink style={navLinkStyles} to={`/product/${el.name}`}>
               {el.name}
             </NavLink>
+            
           </li>
         ))}
+          <li><CurrencySelect/></li>
         <div className={styles.cart}>
-          <li>currency</li>
           <React.Fragment>
             <CartPop />
             {totalItems !== 0 && <span>{totalItems}</span>}
