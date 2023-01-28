@@ -3,6 +3,15 @@
   border: none;
 }
 
+.buttonCart {
+  background-color: white;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
 .boxModal {
   position: absolute;
   top: 10%;
@@ -14,6 +23,6 @@
   overflow-y: scroll;
 }
 
-h4 {
+.mainCartTitle {
   text-align: center;
 }

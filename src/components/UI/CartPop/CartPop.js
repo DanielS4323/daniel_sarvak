@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import cartSvg from "../../../assets/icons/cart.svg";
 import styles from "./CartPop.module.css";
@@ -13,13 +12,11 @@ export default function CartPop() {
   const handleClose = () => setOpen(false);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
-  
-
   return (
     <div>
-      <Button className={styles.buttonCart} onClick={handleOpen}>
+      <button className={styles.buttonCart} onClick={handleOpen}>
         <img src={cartSvg} alt="cart" />
-      </Button>
+      </button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -27,7 +24,7 @@ export default function CartPop() {
         aria-describedby="modal-modal-description"
       >
         <Box className={styles.boxModal}>
-          <h4>
+          <h4 className={styles.mainCartTitle}>
             My Cart, <span> {totalItems} items</span>
           </h4>
           <CartItems />
