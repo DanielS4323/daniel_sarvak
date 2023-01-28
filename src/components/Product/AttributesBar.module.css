@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+h4 {
+  text-align: left;
+}
+
 input {
   margin: 0.2em;
   text-align: center;
