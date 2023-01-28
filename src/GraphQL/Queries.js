@@ -1,5 +1,14 @@
 import { gql } from "@apollo/client";
 
+export const GET_CURRENCY = gql`
+  query Currencies {
+    currencies {
+      label
+      symbol
+    }
+  }
+`;
+
 export const GET_CATEGORIESDYNAMIC = gql`
   query GetCat($name: String!) {
     category(input: { title: $name }) {
@@ -50,9 +59,9 @@ export const GET_PRODUCT_BY_ID = gql`
       }
       prices {
         currency {
-        label
-        symbol
-      }
+          label
+          symbol
+        }
         amount
       }
       brand
